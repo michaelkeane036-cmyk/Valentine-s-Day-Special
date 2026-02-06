@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen">
+            <h1>What is your partner's name? 💕</h1>
+            <div class="input-group">
+                <input type="text" id="partnerName" placeholder="Enter their name..." autocomplete="off">
+            </div>
+            <button class="btn" onclick="generateLink()">Continue</button>
+            <div class="error-message" id="errorMessage">Please enter a name 💕</div>
+            
+            <div class="link-container" id="linkContainer">
+                <h2 style="color: #667eea; margin-bottom: 20px;">Share this link! 🎉</h2>
+                <div class="generated-link" id="generatedLink"></div>
+                <button class="btn copy-btn" onclick="copyLink()">Copy Link 📋</button>
+            </div>
+        </div>
+
+        <!-- Question Page -->
+        <div id="questionScreen" class="question-container">
+            <h1 id="questionText"></h1>
+            <div class="button-group" id="buttonGroup">
+                <button class="btn yes-btn" onclick="handleYes()">Yes ✅</button>
+                <button class="btn no-btn" id="noBtn" onmouseenter="moveNoButton(event)" ontouchstart="handleTouch(event)">No ❌</button>
+            </div>
+        </div>
+
+        <!-- Fallback -->
+        <div id="fallback" class="fallback">
+            <h1>Someone made this special page for you! 💕</h1>
+            <p style="font-size: 1.2rem; color: #666; margin: 30px 0;">Go back to the main page to enter a name.</p>
+            <button class="btn" onclick="goHome()">Go to Main Page</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Copied! 💕</div>
+
+    <!-- Celebration Animation -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <h2>🎉 Yay! 💕</h2>
+            <p style="font-size: 2rem;">They said YES!</p>
+        </div>
+    </div>
+
+    <!-- Book Promotion Modal -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>📖 One More Thing...</h2>
+            <p>Since you love spreading joy, you might enjoy <span class="book-title">"The Power of Music"</span> by Kelvin Tabi — a heartfelt exploration of how music connects us all.</p>
+            <p style="font-size: 1rem; color: #888; margin-top: 20px;">Coming soon! ✨</p>
+            <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
