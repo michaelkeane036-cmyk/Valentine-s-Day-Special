@@ -193,11 +193,12 @@ function handleYes() {
         }, i * 150);
     }
     
-    // After 5 seconds, show book modal
-    setTimeout(() => {
-        celebration.classList.remove('show');
-        document.getElementById('bookModal').classList.add('show');
-    }, 5000);
+    // Create confetti
+    for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+            createConfetti();
+        }, i * 30);
+    }
 }
 
 function createHeart() {
@@ -213,8 +214,26 @@ function createHeart() {
     }, 4000);
 }
 
-function closeModal() {
-    document.getElementById('bookModal').classList.remove('show');
+function createConfetti() {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    
+    // Random colors for confetti
+    const colors = ['#ff6b9d', '#ffc1cc', '#667eea', '#764ba2', '#d63447', '#28a745', '#ffd700', '#ff69b4'];
+    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+    
+    // Random position and size
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+    
+    document.getElementById('celebration').appendChild(confetti);
+    
+    setTimeout(() => {
+        confetti.remove();
+    }, 3500);
 }
 
 function showFallback() {

@@ -226,85 +226,25 @@ input[type="text"]:focus {
     }
 }
 
-/* Book Promotion Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal.show {
-    display: flex;
-    animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background: white;
-    border-radius: 25px;
-    padding: 50px 40px;
-    max-width: 550px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes scaleIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.modal-close {
+/* Confetti Particles */
+.confetti {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #999;
-    line-height: 1;
-    padding: 5px 10px;
+    width: 10px;
+    height: 10px;
+    background: #f0f;
+    opacity: 0;
+    animation: confettiFall 3s ease-out forwards;
 }
 
-.modal-close:hover {
-    color: #333;
-}
-
-.modal h2 {
-    color: #764ba2;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-}
-
-.modal p {
-    font-size: 1.2rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.book-title {
-    color: #d63447;
-    font-weight: 700;
-    font-size: 1.4rem;
-}
-
-.modal .btn {
-    font-size: 1.2rem;
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
 }
 
 .fallback {
@@ -337,13 +277,5 @@ input[type="text"]:focus {
 
     .celebration-content h2 {
         font-size: 2.5rem;
-    }
-
-    .modal-content {
-        padding: 40px 25px;
-    }
-
-    .modal h2 {
-        font-size: 1.8rem;
     }
 }
